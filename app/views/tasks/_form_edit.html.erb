@@ -1,0 +1,21 @@
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title, placeholder: "Ex: Do laundry"  %> 
+  <br>
+  <br>
+  <%= f.label :details %>
+  <br>
+  <%= f.text_field :details, placeholder: "Ex: Pre-wash clothes, put them in washing machine..."  %> 
+  <br>
+  <br>
+  <%= f.check_box :completed %>
+  <% if @task.completed %>
+    <%= f.label :completed, value: "This task is completed" %>
+  <% else %>
+    <%= f.label :completed, value: "This task is not yet completed" %>
+  <% end %>
+  <br>
+  <br>
+  <%= f.submit %>
+<% end %>

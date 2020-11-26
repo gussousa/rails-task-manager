@@ -1,0 +1,18 @@
+<h1>My Tasks</h1>
+<hr>
+
+<% @tasks.each do |task| %>
+  <%= form_for(task) do |f| %>
+    <%= f.check_box :completed, disabled: "disabled" %>
+    <%= link_to "#{task.title}", task_path(task) %>
+    <%= link_to ("<i class='far fa-trash-alt'></i>").html_safe, task_path(task),
+    method: :delete,
+    data: { confirm: "Task will be deleted permanently. Are you sure?" } %>
+    <br>
+  <% end %>
+<% end %>
+
+<br>
+<%= link_to ("<strong>+</strong> Add new task").html_safe, tasks_new_path %>
+
+
